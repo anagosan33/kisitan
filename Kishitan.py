@@ -51,14 +51,14 @@ player4=Player("yellow")
 players=[player1,player2,player3,player4]  
 
 while True:
-    print("selct player name:\n 1:red 2:blue 3:white 4:yellow")
+    print("selct player(1:red 2:blue 3:white 4:yellow): ")
     try:
         player_name=int(input()) 
     except ValueError:
         print("########## please select(1~4) ##############")
         continue
     if player_name > 0 and player_name <=4:
-        print("selct action:\n 1:builtK 2: builtT 3: lostT 4:builtM 5:lostM 6:getE 7:getS 8:lostS")
+        print("selct action(1:+開拓地 2:+都市 3:-都市 4:+メガロ 5:-メガロ 6:+英雄 7:+商人 8:-商人):")
         try:
             action=int(input())
         except ValueError:
