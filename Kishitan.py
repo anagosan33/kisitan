@@ -1,4 +1,5 @@
 import sys
+import tkinter as tk
 class Player():
     def __init__(self,name):
         self.name=name
@@ -41,8 +42,25 @@ class Player():
     def get_eiyu(self):
         self.eiyu+=1
         self.calc_point()
-
-
+def DeleteEntryValue(event):
+  #エントリーの中身を削除
+  EditBox.delete(0, tk.END)
+root = tk.Tk()
+root.title(u"騎士タン点数計算ツール")
+root.geometry("400x300")
+#label
+Static1 = tk.Label(text=u'red')
+Static1.pack()
+Static1 = tk.Label(text=u'blue')
+Static1.pack()
+Static1 = tk.Label(text=u'white')
+Static1.pack()
+Static1 = tk.Label(text=u'yellow')
+Static1.pack()
+#エントリー
+EditBox = tk.Entry()
+EditBox.pack()
+value = EditBox.get()
 
 player1=Player("red   ")
 player2=Player("blue  ")
