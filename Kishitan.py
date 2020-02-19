@@ -20,14 +20,14 @@ class Player():
     def built_toshi(self):
         self.toshi+=1
         self.calc_point()
-    def destroy_toshi(self):
+    def lost_toshi(self):
         self.toshi-=1
         self.calc_point()
     
     def built_megalopolice(self):
         self.megalopolis+=1
         self.calc_point()
-    def destroy_megalopolice(self):
+    def lost_megalopolice(self):
         self.megalopolis-=1
         self.calc_point()
     
@@ -39,19 +39,19 @@ class Player():
         self.calc_point()
 
     def get_eiyu(self):
-        self.syonin-=1
+        self.eiyu+=1
         self.calc_point()
 
 
 
-player1=Player("red")
-player2=Player("blue")
-player3=Player("white")
+player1=Player("red   ")
+player2=Player("blue  ")
+player3=Player("white ")
 player4=Player("yellow")
 players=[player1,player2,player3,player4]  
 
 while True:
-    print("selct player name(1~4):")
+    print("selct player name:\n 1:red 2:blue 3:white 4:yellow")
     try:
         player_name=int(input()) 
     except ValueError:
@@ -83,7 +83,8 @@ while True:
             players[player_name-1].lost_syonin()
 
         for player in players:
-            print(player.name+"  points:"+str(player.point)+"　開拓地"+str(player.kaitakuchi)+"  都市:"+str(player.toshi))
+            print(player.name+"  points:"+str(player.point)+"　開拓地"+str(player.kaitakuchi)+"  都市:"+str(player.toshi)+\
+                " メガロ:"+str(player.megalopolis)+" 英雄:"+str(player.eiyu)+" 商人:"+str(player.syonin))
         
         if players[player_name-1].point >= 13:
             print(players[player_name-1].name +"win")
