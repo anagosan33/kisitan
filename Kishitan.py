@@ -59,7 +59,12 @@ while True:
         continue
     if player_name > 0 and player_name <=4:
         print("selct action:\n 1:builtK 2: builtT 3: lostT 4:builtM 5:lostM 6:getE 7:getS 8:lostS")
-        action=int(input())
+        try:
+            action=int(input())
+        except ValueError:
+            print("########## please select(1~4) ##############")
+            continue
+    
         if action==1:
             players[player_name-1].built_kaitakuci()
         elif action==2: 
