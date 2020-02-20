@@ -69,8 +69,8 @@ def change_p4(event):
     pnumber=3
 
 def var_reload():
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"  開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    vars[pnumber].set("("+players[pnumber].name+")points:"+str(players[pnumber].point)+"  [開拓地:"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
+                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin)+" ]")
 
 def add_K(event):
     players[pnumber].built_kaitakuci()
@@ -97,10 +97,10 @@ def lost_S(event):
     players[pnumber].lost_syonin()
     var_reload() 
 
-player1=Player("red   ")
-player2=Player("blue  ")
-player3=Player("white ")
-player4=Player("yellow")
+player1=Player("赤")
+player2=Player("青")
+player3=Player("白")
+player4=Player("黄色")
 players=[player1,player2,player3,player4] 
 
 root = tk.Tk()
@@ -173,33 +173,39 @@ bls.place(x=425,y=50)
 
 #socre表示
 var1 = tk.StringVar()
-var1.set(players[0].name+"  points:"+str(players[0].point)+"　開拓地"+str(players[0].kaitakuchi)+"  都市:"+str(players[0].toshi)+\
-                " メガロ:"+str(players[0].megalopolis)+" 英雄:"+str(players[0].eiyu)+" 商人:"+str(players[0].syonin))
+var2 = tk.StringVar()
+var3 = tk.StringVar()
+var4 = tk.StringVar()
+vars=[var1,var2,var3,var4]
+
+
+pnumber=0
+var_reload()
 score1 = tk.Label(root,textvariable=var1)
 score1.pack()
 score1.place(x=100,y=100)
 
-var2 = tk.StringVar()
-var2.set(players[1].name+"  points:"+str(players[1].point)+"　開拓地"+str(players[1].kaitakuchi)+"  都市:"+str(players[1].toshi)+\
-                " メガロ:"+str(players[1].megalopolis)+" 英雄:"+str(players[1].eiyu)+" 商人:"+str(players[1].syonin))
+
+pnumber=1
+var_reload()
 score2 = tk.Label(root,textvariable=var2)
 score2.pack()
 score2.place(x=100,y=130)
 
-var3 = tk.StringVar()
-var3.set(players[2].name+"  points:"+str(players[2].point)+"　開拓地"+str(players[2].kaitakuchi)+"  都市:"+str(players[2].toshi)+\
-                " メガロ:"+str(players[2].megalopolis)+" 英雄:"+str(players[2].eiyu)+" 商人:"+str(players[2].syonin))
+
+pnumber=2
+var_reload()
 score3 = tk.Label(root,textvariable=var3)
 score3.pack()
 score3.place(x=100,y=160)
 
-var4 = tk.StringVar()
-var4.set(players[3].name+"  points:"+str(players[3].point)+"　開拓地"+str(players[3].kaitakuchi)+"  都市:"+str(players[3].toshi)+\
-                " メガロ:"+str(players[3].megalopolis)+" 英雄:"+str(players[3].eiyu)+" 商人:"+str(players[3].syonin))
+
+pnumber=3
+var_reload()
 score4 = tk.Label(root,textvariable=var4)
 score4.pack()
 score4.place(x=100,y=190)
 
 
-vars=[var1,var2,var3,var4]
+
 root.mainloop() 
