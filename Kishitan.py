@@ -52,6 +52,7 @@ class Player():
         self.calc_point()
 
 pnumber=0
+
 def change_p1(event):
     global pnumber
     pnumber=0
@@ -67,38 +68,34 @@ def change_p4(event):
     global pnumber
     pnumber=3
 
-def add_K(event):
-    players[pnumber].built_kaitakuci()
+def var_reload():
     vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"  開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
                 " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+
+def add_K(event):
+    players[pnumber].built_kaitakuci()
+    var_reload()
 def add_T(event):
     players[pnumber].built_toshi()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def lost_T(event):
     players[pnumber].lost_toshi()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def add_M(event):
     players[pnumber].built_megalopolice()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def lost_M(event):
     players[pnumber].lost_megalopolice()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def get_E(event):
     players[pnumber].get_eiyu()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def get_S(event):
     players[pnumber].get_syonin()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload()
 def lost_S(event):
     players[pnumber].lost_syonin()
-    vars[pnumber].set(players[pnumber].name+"  points:"+str(players[pnumber].point)+"　開拓地"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin))
+    var_reload() 
 
 player1=Player("red   ")
 player2=Player("blue  ")
@@ -206,6 +203,3 @@ score4.place(x=100,y=190)
 
 vars=[var1,var2,var3,var4]
 root.mainloop() 
-
-
-
