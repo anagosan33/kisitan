@@ -69,8 +69,8 @@ def change_p4(event):
     pnumber=3
 
 def var_reload():
-    vars[pnumber].set("("+players[pnumber].name+")points:"+str(players[pnumber].point)+"  [開拓地:"+str(players[pnumber].kaitakuchi)+"  都市:"+str(players[pnumber].toshi)+\
-                " メガロ:"+str(players[pnumber].megalopolis)+" 英雄:"+str(players[pnumber].eiyu)+" 商人:"+str(players[pnumber].syonin)+" ]")
+    vars[pnumber].set("("+players[pnumber].name+")points:"+str(players[pnumber].point)+"　[開拓地:"+str(players[pnumber].kaitakuchi)+"　　都市:"+str(players[pnumber].toshi)+\
+                "　　メガロ:"+str(players[pnumber].megalopolis)+"　　英雄:"+str(players[pnumber].eiyu)+"　　商人:"+str(players[pnumber].syonin)+" ]")
 
 def add_K(event):
     players[pnumber].built_kaitakuci()
@@ -100,12 +100,12 @@ def lost_S(event):
 player1=Player("赤")
 player2=Player("青")
 player3=Player("白")
-player4=Player("黄色")
+player4=Player("黄")
 players=[player1,player2,player3,player4] 
 
 root = tk.Tk()
 root.title(u"騎士タン点数計算ツール")
-root.geometry("500x300")
+root.geometry("500x250")
 
 #player ボタン
 Pbtn1= tk.Button(text=u'赤',foreground="#ff0000")
@@ -123,7 +123,7 @@ Pbtn3.pack()
 Pbtn3.place(x=85,y=5)
 Pbtn3.bind("<Button-1>",change_p3)
 
-Pbtn4= tk.Button(text=u'黄色',foreground="#ffa500")
+Pbtn4= tk.Button(text=u'黄',foreground="#ffa500")
 Pbtn4.pack()
 Pbtn4.bind("<Button-1>",change_p4)
 Pbtn4.place(x=125,y=5)
@@ -183,29 +183,25 @@ pnumber=0
 var_reload()
 score1 = tk.Label(root,textvariable=var1)
 score1.pack()
-score1.place(x=100,y=100)
-
+score1.place(x=50,y=100)
 
 pnumber=1
 var_reload()
 score2 = tk.Label(root,textvariable=var2)
 score2.pack()
-score2.place(x=100,y=130)
-
+score2.place(x=50,y=130)
 
 pnumber=2
 var_reload()
 score3 = tk.Label(root,textvariable=var3)
 score3.pack()
-score3.place(x=100,y=160)
-
+score3.place(x=50,y=160)
 
 pnumber=3
 var_reload()
 score4 = tk.Label(root,textvariable=var4)
 score4.pack()
-score4.place(x=100,y=190)
-
+score4.place(x=50,y=190)
 
 
 root.mainloop() 
